@@ -1,0 +1,94 @@
+<div class="container mx-auto p-4 bg-gray-200">
+    <div class="col-span-2 p-8 border-4 shadow-2xl rounded-xl bg-white">
+        <div class="grid grid-cols-2">
+            <h2 class="text-2xl font-bold mb-4"><i class="fa-solid fa-circle-user"></i>&nbsp; Guest Infomation</h2>
+            <h2 *ngIf="!isEdit" class="text-end text-gray-600 hover:text-black hover:cursor-pointer"><i class="fa-solid fa-pen-to-square" (click)="editNow()"></i></h2>
+            <h2  *ngIf="isEdit" class="text-end text-gray-600 hover:text-black hover:cursor-pointer"><i class="fa-solid fa-xmark" (click)="editNow()"></i></h2>
+        </div>
+        <form (submit)="updateGuest()" #guestForm="ngForm" class="space-y-4">
+            <div class="grid grid-cols-2">
+                <div class="flex">
+                    <label for="firstName" class="block text-sm mt-3 font-medium w-3/5 pl-10 text-start text-gray-700">First Name</label>
+                    <div class="font-bold mt-2">:</div>
+                </div>
+                <input #firstName="ngModel" [(ngModel)]="guest().firstName" type="text" id="firstName" name="firstName" class="block w-full {{isEdit ? 'border shadow-sm' : 'bg-transparent'}} border-gray-300 rounded-md p-2" [disabled]="!isEdit" required>
+                @if (firstName.touched && firstName.errors?.['required']) {
+                    <small class="-col-start-2 text-red-600">Firstname is required!</small>
+                }
+            </div>
+            <div class="grid grid-cols-2">
+                <div class="flex">
+                    <label for="lastName" class="block mt-3 w-3/5 pl-10 text-start text-sm font-medium text-gray-700">Last Name</label>
+                    <div class="font-bold mt-2">:</div>
+                </div>
+                <input #lastName="ngModel" [(ngModel)]="guest().lastName" type="text" id="lastName" name="lastName" class="block w-full {{isEdit ? 'border shadow-sm' : 'bg-transparent'}} border-gray-300 rounded-md p-2" [disabled]="!isEdit" required>
+                @if (lastName.touched && lastName.errors?.['required']) {
+                    <small class="-col-start-2 text-red-600">Lastname is required!</small>
+                }
+            </div>
+            <div class="grid grid-cols-2">
+                <div class="flex">
+                    <label for="birthDate" class="block mt-3 w-3/5 pl-10 text-start text-sm font-medium text-gray-700">Birth Date</label>
+                    <div class="font-bold mt-2">:</div>
+                </div>
+                <input #birthDate="ngModel" [(ngModel)]="guest().birthDate" type="date" id="birthDate" name="birthDate" class="block w-full {{isEdit ? 'border shadow-sm' : 'bg-transparent'}} border-gray-300 rounded-md p-2" [disabled]="!isEdit" required>
+                @if (birthDate.touched && birthDate.errors?.['required']) {
+                    <small class="-col-start-2 text-red-600">BirthDate is required!</small>
+                }
+            </div>
+            <div class="grid grid-cols-2">
+                <div class="flex">
+                    <label for="email" class="block mt-3 w-3/5 pl-10 text-start text-sm font-medium text-gray-700">Email Address</label>
+                    <div class="font-bold mt-2">:</div>
+                </div>
+                <input #email="ngModel" [(ngModel)]="guest().email" type="email" id="email" name="email" class="block w-full {{isEdit ? 'border shadow-sm' : 'bg-transparent'}} border-gray-300 rounded-md p-2" [disabled]="!isEdit" required>
+                @if (email.touched && email.errors?.['required']) {
+                    <small class="-col-start-2 text-red-600">Email address is required!</small>
+                }
+            </div>
+            <div class="grid grid-cols-2">
+                <div class="flex">
+                    <label for="phone" class="block mt-3 w-3/5 pl-10 text-start text-sm font-medium text-gray-700">Phone Number</label>
+                    <div class="font-bold mt-2">:</div>
+                </div>
+                <input #phone="ngModel" [(ngModel)]="guest().phone" type="tel" id="phone" name="phone" class="block {{isEdit ? 'border shadow-sm' : 'bg-transparent'}} border-gray-300 rounded-md p-2" [disabled]="!isEdit" required>
+                @if (phone.touched && phone.errors?.['required']) {
+                    <small class="-col-start-2 text-red-600">Phone number is required!</small>
+                }
+            </div>
+            <div class="grid grid-cols-2">
+                <div class="flex">
+                    <label for="street" class="block mt-3 w-3/5 pl-10 text-start text-sm font-medium text-gray-700">Street</label>
+                    <div class="font-bold mt-2">:</div>
+                </div>
+                <input #street="ngModel" [(ngModel)]="guest().address.street" type="text" id="street" name="street" class="block w-full {{isEdit ? 'border shadow-sm' : 'bg-transparent'}} border-gray-300 rounded-md p-2" [disabled]="!isEdit" required>
+                @if (street.touched && street.errors?.['required']) {
+                    <small class="-col-start-2 text-red-600">Street name is required!</small>
+                }
+            </div>
+            <div class="grid grid-cols-2">
+                <div class="flex">
+                    <label for="city" class="block mt-3 w-3/5 pl-10 text-start text-sm font-medium text-gray-700">City</label>
+                    <div class="font-bold mt-2">:</div>
+                </div>
+                <input #city="ngModel" [(ngModel)]="guest().address.city" type="text" id="city" name="city" class="block w-full {{isEdit ? 'border shadow-sm' : 'bg-transparent'}} border-gray-300 rounded-md p-2" [disabled]="!isEdit" required>
+                @if (city.touched && city.errors?.['required']) {
+                    <small class="-col-start-2 text-red-600">City name is required!</small>
+                }
+            </div>
+            <div class="grid grid-cols-2">
+                <div class="flex">
+                    <label for="country" class="block mt-3 w-3/5 pl-10 text-start text-sm font-medium text-gray-700">Country</label>
+                    <div class="font-bold mt-2">:</div>
+                </div>
+                <input #country="ngModel" [(ngModel)]="guest().address.country" type="text" id="country" name="country" class="block w-full {{isEdit ? 'border shadow-sm' : 'bg-transparent'}} border-gray-300 rounded-md p-2" [disabled]="!isEdit" required>
+                @if (country.touched && country.errors?.['required']) {
+                    <small class="-col-start-2 text-red-600">Country name is required!</small>
+                }
+            </div>
+            <div>
+                <button *ngIf="isEdit" [disabled]="guestForm.invalid" type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md">Update Infomation</button>
+            </div>
+        </form>
+    </div>
+</div>

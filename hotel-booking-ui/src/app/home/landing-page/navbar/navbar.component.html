@@ -1,0 +1,28 @@
+<div>
+    <nav class="backdrop-blur-md backdrop-filter">
+        <div class="container mx-auto flex p-4">
+            <div class="flex">
+                <a href="#" class="font-bold mt-1 pl-3 text-white"><img src="/assets/logo.png" width="150px" alt=""></a>
+                <div class="text-gray-400 hover:text-white mt-7">
+                    <i class="fa-regular fa-star text-sm p-1"></i>
+                    <i class="fa-regular fa-star text-sm p-1"></i>
+                    <i class="fa-regular fa-star text-sm p-1"></i>
+                    <i class="fa-regular fa-star text-sm p-1"></i>
+                    <i class="fa-regular fa-star text-sm p-1"></i>
+                </div>
+            </div>
+            <button class="md:hidden text-gray-700 hover:text-gray-900 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="container border-t mx-auto flex justify-center items-center">
+            <div class="flex space-x-10">
+                <a [routerLink]="['/accommodation']" routerLinkActive="router-link-active"  class="text-slate-300 px-16 py-3 hover:text-white hover:border-b border-gray-300 hover:scale-105">Room</a>
+                <a [routerLink]="['/restaurant']" routerLinkActive="router-link-active"  class="text-slate-300 px-16 py-3 hover:text-white hover:border-b border-gray-300 hover:scale-105">Restaurant</a>
+                <a [routerLink]="['/about']" routerLinkActive="router-link-active"  class="text-slate-300 px-16 py-3 hover:text-white hover:border-b border-gray-300 hover:scale-105">Hotel</a>
+            </div>
+        </div>
+    </nav>
+</div>

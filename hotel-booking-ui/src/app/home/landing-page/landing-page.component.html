@@ -1,0 +1,13 @@
+
+<div class="flex flex-col min-h-screen">
+    <div class="bg-black/40 absolute w-full h-screen z-10"></div>
+    <app-navbar class="w-full z-10 top-0 left-0"></app-navbar>
+    <div class="fixed right-0 px-10 py-1 md:flex z-20 space-x-4">
+        <a [routerLink]="['/booking']" routerLinkActive="router-link-active"  class="text-white bg-slate-800 py-3 px-7 mt-7 rounded-2xl hover:bg-orange-950 hover:scale-105"><i class="fa-solid fa-book mr-3"></i>Booking</a>
+    </div>
+    <main class="flex-grow w-full mt-[40rem] z-0">
+        <router-outlet></router-outlet>
+    </main>
+    
+    <app-footer></app-footer>
+</div>

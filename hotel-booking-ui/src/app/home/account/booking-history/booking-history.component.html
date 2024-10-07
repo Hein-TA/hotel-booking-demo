@@ -1,0 +1,13 @@
+<div class="py-8 pl-10 bg-white">
+    <p class="text-2xl font-bold"><i class="fa-solid fa-clock-rotate-left px-4"></i>Booking History</p>
+</div>
+<div class="grid grid-cols-2 justify-items-center bg-white space-x-5">
+    <div *ngIf="historyCount == 0">
+        <div class="h-screen">
+            <p>There is no booking yet. <a [routerLink]="['/booking/search-room']" routerLinkActive="router-link-active"  class="underline text-purple-500 cursor-pointer hover:text-purple-300">Book now?</a></p>
+        </div>
+    </div>
+    @for (item of bookHistory; track $index) {
+        <app-history-card [history]="item"></app-history-card>
+    }
+</div>

@@ -1,0 +1,49 @@
+<div>
+    <div class="flex justify-center items-center min-h-screen bg-gray-100" style="background-image: url('/assets/search-bg.jpg'); background-size: cover; background-position: center;">
+        <div class="bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-md">
+            <div class="mb-3 border border-orange-400 rounded-lg p-2 bg-green-100 space-y-1">
+                <table class="table-auto text-left">
+                    <tbody class="text-gray-500">
+                        <tr>
+                            <td class="py-2 font-bold p-2">Check-in Time</td>
+                            <td class="font-bold pl-3">:</td>
+                            <td class="py-2 font-bold p-9 text-end"><span>12:00 pm</span></td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 font-bold p-2">Check-out Time</td>
+                            <td class="font-bold pl-3">:</td>
+                            <td class="py-2 font-bold p-9 text-end"><span>14:00 pm</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mb-4">
+                <label for="check-in" class="block text-gray-700">Check-in Date</label>
+                <input [(ngModel)]="checkinDate" (change)="dateService.onCheckinChange()" [min]="checkinMinDate()" type="date" id="check-in" name="check-in" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            </div>
+            <div class="mb-4">
+                <label for="check-out" class="block text-gray-700">Check-out Date</label>
+                <input [(ngModel)]="checkoutDate" [min]="checkoutMinDate()" type="date" id="check-out" name="check-out" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            </div>
+
+            @if (isUserLoggedin) {
+                <div class="mb-3 mt-3">
+                    <div class="flex flex-row mr-3 justify-end hover:cursor-pointer hover:text-blue-600 hover:scale-y-110" (click)="toggleDropdown()">
+                        <p>Search with Room</p>
+                        <svg class="w-5 h-5 ml-2 -mr-1 pt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.67l3.71-3.48a.75.75 0 111.04 1.08l-4.25 4a.75.75 0 01-1.04 0l-4.25-4a.75.75 0 01-.02-1.06z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <div *ngIf="dropdownOpen" class="mb-5">
+                        <input [(ngModel)]="roomNumber" type="text" placeholder="Enter room number" class="mt-1 block w-full px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                    </div>
+                </div>
+            }
+              
+            <button (click)="searchRoom()" type="submit" class="w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md flex items-center justify-center hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                <i class="fa-duotone fa-solid fa-magnifying-glass mr-3"></i>
+                Search
+            </button>
+        </div>
+    </div>
+</div>

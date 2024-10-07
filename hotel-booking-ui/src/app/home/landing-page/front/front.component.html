@@ -1,0 +1,93 @@
+<div class="font-serif">
+    <img class="absolute top-0 left-0 w-full h-full z-10 object-cover" src="/assets/landing-images/front.jpg" alt="">
+    <div class="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center z-10">
+        <h1 class="text-white text-7xl font-bold pb-10">Grand Larva Hotel</h1>
+        <h3 class="text-white text-2xl">A place I feel like a home.</h3>
+        <h3 class="text-white text-2xl">Welcome to one of the 10% best hotels in the world.</h3>
+    </div>
+    <div class="container text-3xl mb-16 py-20 flex flex-col">
+        <i class="fa-solid fa-quote-left ml-40"></i>
+        <div class="text-center mx-[10rem]">
+            <p>If you’re looking for the best place to stay, consider the luxurious <b>Grand Larva Hotel</b>. Nestled in the heart of the city, this hotel offers an unparalleled blend of comfort and elegance. Guests are greeted with spacious, beautifully decorated rooms that feature modern amenities and breathtaking views of the skyline. Whether you’re relaxing by the rooftop pool, indulging in a spa treatment, or exploring nearby attractions, the <b>Grand Larva Hotel</b> provides an unforgettable experience that truly makes it the best place to stay.</p>
+        </div>
+        <i class="fa-solid fa-quote-right ms-auto mr-40"></i>
+    </div>
+    <div class="container relative bg-red-50 py-40 group">
+        <div class="absolute top-14 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <p class="text-gray-500 border-2 p-5 text-2xl"><i class="fa-solid fa-i"></i></p>
+        </div>
+        <img class="w-3/5 h-full z-0 object-cover mx-auto rounded-2xl shadow-2xl shadow-black border-4 group-hover:scale-110 transition-transform duration-300" src="/assets/landing-images/front/pool.jpg" alt="">
+        <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+            <div class="bg-white h-[250px] w-2/6 z-20 border-8 flex justify-center items-center group-hover:scale-110 transition-transform duration-300">
+                <div class="text-center">
+                    <p>
+                        Favorite hotel<br>
+                        An oasis of relaxation<br>
+                        An exceptional experience<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div class="container relative bg-yellow-50 py-40 grid grid-cols-2 justify-items-center gap-10">
+        <div class="absolute top-14 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <p class="text-gray-500 border-2 p-5 text-2xl"><i class="fa-solid fa-i"></i><i class="fa-solid fa-i"></i></p>
+        </div>
+        <div [routerLink]="['/accommodation']" class="relative group cursor-pointer">
+            <img class="h-[500px] w-full object-cover rounded-2xl shadow-2xl shadow-black border-4 group-hover:scale-105 transition-transform duration-300" src="/assets/rooms-view/Suite-4.jpg" alt="">
+            <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg">
+                    <p class="text-2xl text-gray-400 group-hover:text-orange-900 transition-colors duration-300">
+                        SUITE
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div [routerLink]="['/accommodation']" class="relative group cursor-pointer">
+            <img class="h-[500px] w-full object-cover rounded-2xl shadow-2xl shadow-black border-4 group-hover:scale-105 transition-transform duration-300" src="/assets/landing-images/front/toRoom.jpg" alt="">
+            <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg">
+                    <p class="text-2xl text-gray-400 group-hover:text-orange-900 transition-colors duration-300">
+                        ROOM
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 group">
+            <button [routerLink]="['/accommodation']" class="border-2 px-7 py-3 rounded-3xl hover:scale-125 hover:border-orange-800 transition-transform duration-300">Accommodation <i class="fa-solid fa-angles-right group-hover:scale-x-125 transition-transform duration-300"></i></button>
+        </div>
+    </div>
+    <div class="container relative bg-zinc-50 py-40 flex justify-center items-center hover:scale-105 transition-transform duration-500">
+        <div class="absolute top-14 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <p class="text-gray-500 border-2 p-5 text-2xl"><i class="fa-solid fa-i"></i><i class="fa-solid fa-i"></i><i class="fa-solid fa-i"></i></p>
+        </div>
+        <div class="absolute top-36 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <p class="text-black text-6xl">Excellent gastronomy</p>
+        </div>
+        <div class="w-2/6 mt-[100px]">
+            <img class="h-[500px] w-full object-cover rounded-2xl shadow-2xl shadow-black border-4" src="/assets/landing-images/front/pasta.jpg" alt="">
+        </div>
+        <div class="w-1/2 pl-14">
+            <div class="bg-white bg-opacity-75 p-8 rounded-lg shadow-lg space-y-16">
+                <p class="text-2xl text-gray-600">Rediscovered recipes. </p>
+                <p>Quality seasonal products. </p>
+                <p>See, feel, enjoy and be pampered. </p>
+            </div>
+        </div>
+        <div class="absolute bottom-20 group">
+            <button [routerLink]="['/gastro']" class="border-2 px-7 py-3 rounded-3xl hover:scale-125 hover:border-orange-800 transition-transform duration-300">Gastro <i class="fa-solid fa-angles-right group-hover:scale-x-125 transition-transform duration-300"></i></button>
+        </div>
+    </div>
+    <div class="container relative bg-zinc-50 py-40 flex justify-center items-center hover:scale-105 transition-transform duration-500">
+        <div class="w-2/6 mt-[100px]">
+            <img class="h-[500px] w-full object-cover rounded-2xl shadow-2xl shadow-black border-4" src="/assets/landing-images/front/bar.jpg" alt="">
+        </div>
+        <div class="w-1/2 pl-10 text-center">
+            <div class="bg-transparent bg-opacity-75 p-8">
+                <p class="text-5xl pb-16"><i class="fa-solid fa-wine-glass-empty"></i></p>
+                <p class="text-3xl text-black py-10">Lobby bar</p>
+                <p class="text-gray-500">A stylish bar with a pleasant atmosphere</p>
+            </div>
+        </div>
+    </div>
+</div>

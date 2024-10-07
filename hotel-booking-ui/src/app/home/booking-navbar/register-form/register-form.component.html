@@ -1,0 +1,89 @@
+
+<div class="bg-black/35 fixed w-full h-screen z-30" (click)="cancelEvent()"></div>
+<div class='container flex justify-center'>
+        <div class="fixed top-[4rem] w-3/5 h-min bg-white z-40 duration-500 rounded-xl border-8 border-neutral-500">
+            <div class="absolute top-2 right-4 hover:cursor-pointer text-gray-400 hover:text-black" (click)="cancelEvent()"><i class="fa-solid fa-square-xmark"></i></div>
+            <form (submit)="showLoginFormNowEvent()" #accForm=ngForm class="grid grid-cols-2 my-10">
+                <div class="mb-5 mx-5">
+                    <label for="firstName" class="block text-sm font-medium text-gray-700">First Name</label>
+                    <input #firstName="ngModel" [(ngModel)]="account.firstName" type="text" name="firstName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 {{firstName.touched && firstName.invalid ? 'border-3 border-red-600': ''}}" required>
+                    @if (firstName.touched && firstName.errors?.['required']) {
+                        <small class="text-red-600">Firstname is required!</small>
+                    }
+                </div>
+                <div class="mb-5 mx-5">
+                    <label for="lastName" class="block text-sm font-medium text-gray-700">Last Name</label>
+                    <input #lastName="ngModel" [(ngModel)]="account.lastName" type="text" id="lastName" name="lastName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
+                    @if (lastName.touched && lastName.errors?.['required']) {
+                        <small class="text-red-600">Lastname is required!</small>
+                    }
+                </div>
+                <div class="mb-5 mx-5">
+                    <label for="birthDate" class="block text-sm font-medium text-gray-700">Birth Date</label>
+                    <input #birthDate="ngModel" [(ngModel)]="account.birthDate" type="date" id="birthDate" name="birthDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
+                    @if (birthDate.touched && birthDate.errors?.['required']) {
+                        <small class="text-red-600">BirthDate is required!</small>
+                    }
+                </div>
+                <div class="mb-5 mx-5">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <input #email="ngModel" (click)="setErrorMsg()" [(ngModel)]="account.email" type="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 {{errorMsg || email.touched && email.invalid ? 'border-3 border-red-600': ''}}" required>
+                    
+                    @if (email.touched && email.errors?.['required']) {
+                        <small class="text-red-600">Email is required!</small>
+                    }
+                    @else if (errorMsg !== '') {
+                        <small class="text-red-600">Email is already exists!</small>
+                    }
+                </div>
+                <div class="mb-5 mx-5">
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input #password="ngModel" [(ngModel)]="account.password" type="text" id="password" name="password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
+                    @if (password.touched && password.errors?.['required']) {
+                        <small class="text-red-600">Password is required!</small>
+                    }
+                </div>
+                <div class="mb-5 mx-5">
+                    <label for="rePassword" class="block text-sm font-medium text-gray-700">Re-enter Password</label>
+                    <input type="text" id="rePassword" name="rePassword" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
+                </div>
+                <div class="mb-5 mx-5">
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <input #phone="ngModel" [(ngModel)]="account.phone" type="tel" id="phone" name="phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
+                    @if (phone.touched && phone.errors?.['required']) {
+                        <small class="text-red-600">Phone number is required!</small>
+                    }
+                </div>
+                <div class="mb-5 mx-5">
+                    <label for="street" class="block text-sm font-medium text-gray-700">Street</label>
+                    <input #street="ngModel" [(ngModel)]="account.street" type="text" id="street" name="street" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
+                    @if (street.touched && street.errors?.['required']) {
+                        <small class="text-red-600">Street name is required!</small>
+                    }
+                </div>
+                <div class="mb-5 mx-5">
+                    <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                    <input #city="ngModel" [(ngModel)]="account.city" type="text" id="city" name="city" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
+                    @if (city.touched && city.errors?.['required']) {
+                        <small class="text-red-600">City name is required!</small>
+                    }
+                </div>
+                <div class="mb-5 mx-5">
+                    <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+                    <input #country="ngModel" [(ngModel)]="account.country" type="text" id="country" name="country" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
+                    @if (country.touched && country.errors?.['required']) {
+                        <small class="text-red-600">Country name is required!</small>
+                    }
+                </div>
+                <div class="col-span-2 mb-5 mx-10">
+                    <div class="grid mb-3">
+                        <label class="flex items-center space-x-2">
+                            <input #check="ngModel" [(ngModel)]="isChecked"  type="checkbox" name="check" id="check" class="form-checkbox" required>
+                            <span>I Agree to the terms & conditions.</span>
+                        </label>
+                    </div>
+                    <button type="submit" [disabled]="accForm.invalid" class="w-full bg-blue-500 text-white p-2 rounded-md">Register</button>
+                </div>
+            </form>
+        </div>
+</div>

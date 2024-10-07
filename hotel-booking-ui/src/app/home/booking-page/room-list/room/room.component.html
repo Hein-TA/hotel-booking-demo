@@ -1,0 +1,47 @@
+<div class="max-w-screen-lg flex hover:scale-105 rounded-lg border-2 p-3 overflow-hidden shadow-xl m-5 mb-8 hover:border-b-2 hover:border-b-orange-800">
+    <img class="rounded-lg shadow-xl border-2 border-gray-500 hover:cursor-pointer hover:scale-105" src="/assets/rooms-view/{{room.type}}-{{room.occupation}}.jpg" width="180px" height="100px" alt="Sample Image">
+    <div class="grid grid-cols-2 px-2 py-4"></div>
+        <div class="grid">
+            <div class="font-bold text-xl mb-2">{{room.type}} Room</div>
+            <div class="flex items-center">
+                <p class="text-gray-700 text-base mr-4">
+                    <i class="fa-solid fa-user-group"></i> <i *ngIf="room.occupation == 4" class="fa-solid fa-user-group"></i> {{room.occupation}} Person &ensp;<i class="fa-solid fa-user-large"></i> +1
+                </p>
+            </div>
+            <div class="mt-3">
+                <p class="text-orange-800 text-base mr-4">Only 1 more extra bed can be added. Extra bed will be cost $ {{room.price * 0.3}}</p>
+            </div>
+        </div>
+        <p *ngIf="(room.availableRoom > 1 ? 'rooms' : 'room') as data" class="text-green-700 mb-4 text-xs">
+            We still have {{room.availableRoom}} {{data}}.
+        </p>
+        <div class="grid grid-cols-1 text-center justify-center align-middle border-l-2 w-1/4 pl-4 me-5">
+            <span class="text-gray-900 font-bold text-xl mt-5">$ {{room.price}}</span>
+            <button (click)="registerRoom()" class="bg-blue-500 text-white hover:bg-blue-700 mt-5 hover:scale-105 rounded-lg">
+                <i class="fa-solid fa-file-signature"></i> Book Now!
+            </button>
+        </div>
+</div>
+<!-- <img class="w-full h-[130px]" src="https://tailwind-generator.b-cdn.net/images/card-generator/tailwind-card-generator-card-preview.png" alt="Sample Image">
+    <div class="grid grid-cols-2 px-6 py-4">
+        <div class="grid">
+            <div class="font-bold text-xl mb-2">{{room.type}}</div>
+            <p class="text-green-700 text-sm mb-4">
+                We still have {{room.availableRoom}} rooms.
+            </p>
+            <div class="flex items-center">
+                <p class="text-gray-700 text-base mr-4">
+                    Occupation: {{room.occupation}} Person
+                </p>
+            </div>
+            <div class="mt-3">
+                <p class="text-orange-800 text-base mr-4">Only 1 more extra bed can be added. Extra bed will be cost $50.</p>
+            </div>
+        </div>
+        <div class="grid ms-auto me-20">
+            <span class="text-gray-900 font-bold text-xl">$ {{room.price}}</span>
+            <button (click)="registerRoom()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded-md">
+                Book Now!
+            </button>
+        </div>
+    </div> -->

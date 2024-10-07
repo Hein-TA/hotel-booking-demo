@@ -1,0 +1,46 @@
+<div (click)="closeDetails()" class="bg-black/35 fixed w-full h-screen z-40"></div>
+<div class='container flex justify-center'>
+        <div class="absolute top-[4rem] w-3/5 h-screen bg-white z-40 duration-500 rounded-xl border-8 border-neutral-500">
+            <div class="flex mb-4 border-b-2 pb-5 mt-4">
+                <div class="absolute right-4 hover:cursor-pointer text-gray-400 hover:text-black" (click)="closeDetails()"><i class="fa-solid fa-square-xmark"></i></div>
+                <p class="ml-7 font-bold">{{room.roomType}} Room</p>
+            </div>
+            <div class="grid grid-cols-2 ml-5 mb-5 space-x-14">
+                <div>
+                    <div>
+                        <img class="w-5/6 border-4 border-gray-300 rounded-lg mb-2" src="/assets/room-detail/{{room.roomType}}-{{room.occupation}}-room/{{room.roomType}}-{{room.occupation}}.jpg" height="150px" alt="">
+                        <div class="flex space-x-1">
+                            <img class="border-4 border-gray-300 rounded-lg mb-2" src="/assets/room-detail/{{room.roomType}}-{{room.occupation}}-room/{{room.roomType}}-{{room.occupation}}-bath.jpg" width="150px" height="150px" alt="">
+                            <img class="border-4 border-gray-300 rounded-lg mb-2" src="/assets/room-detail/{{room.roomType}}-{{room.occupation}}-room/{{room.roomType}}-{{room.occupation}}-flip.jpg" width="150px" height="150px" alt="">
+                        </div>
+                    </div>
+                    <p *ngIf="room.occupation == 2" class="text-gray-600">Renovated, comfortably furnished smaller room with the option of separating beds on request, DOUBLE BED (joined beds) or TWIN BED (separate beds).</p>
+                    <p *ngIf="room.occupation == 4" class="text-gray-600">Stylish, comfortable and spacious suite after renovation in 2021, with a separate living area, a bedroom with a double bed, a bedroom with two separate beds (TWIN BED) and a view of the pool.</p>
+                </div>
+                <div>
+                    <div *ngIf="(room.occupation == 2 ? 20 : 35) as data">
+                        <i class="fa-solid fa-couch mr-3"></i> Living area: {{data}} m²
+                    </div>
+                    <p *ngIf="room.occupation == 4"></p>
+                    <p class="text-lg my-4"><i class="fa-solid fa-screwdriver-wrench mr-3"></i>Room equipment</p>
+                    <ul class="list-disc pl-5 text-gray-600">
+                        <li *ngIf="room.occupation == 4">two separate bedrooms</li>
+                        <li>Room equipment</li>
+                        <li>LCD TV with SAT</li>
+                        <li>coffee and tea service</li>
+                        <li>desk</li>
+                        <li>air conditioning</li>
+                        <li>Wi-Fi</li>
+                        <li>bathroom with shower</li>
+                        <li>bathrobe and slippers</li>
+                        <li>hairdryer</li>
+                        <li>minibar (for a fee)</li>
+                        <li>telephone</li>
+                        <li>safe</li>
+                    </ul>
+                    <p class="text-lg my-4"><i class="fa-solid fa-circle-info mr-3"></i>Additional information</p>
+                    <p class="text-red-400"><i class="fa-solid fa-ban-smoking"></i>The room is non-smoking.</p>
+                </div>
+            </div>
+        </div>
+</div>
